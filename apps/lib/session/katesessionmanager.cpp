@@ -719,8 +719,7 @@ void KateSessionManager::updateJumpListActions()
     // remove all Session action groups first to not leave behind any cruft
     const QStringList actions = df->readActions();
     for (const QString &action : actions) {
-        if (action.startsWith(QLatin1String("Session "))) {
-            // TODO is there no deleteGroup(QLatin1String(KConfigGroup))?
+        if (action.startsWith(QLatin1StringView("Session "))) {
             df->deleteGroup(df->actionGroup(action).name());
         }
     }
